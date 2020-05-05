@@ -50,13 +50,14 @@ enum RomanNumeral {
         }
 
         if (romanNumeral.length() > 0) {
-            System.out.println("\""+ input+ "\"" + " не полуилсь сконвертировать, точно это Римские цифры?");
+            System.out.println("\""+ input+ "\"" + " не получилсь сконвертировать, точно это Римские цифры?");
             result = -999999;
         }
 
         return result;
     }
 }
+
 
 
 

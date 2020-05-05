@@ -1,9 +1,12 @@
 package com.company;
 
+import jdk.swing.interop.SwingInterOpUtils;
+
 import static com.company.RomConvers.romanToArabic;
 import static com.company.SanitationAndDataPreparation.Separate;
 import static com.company.calculate.calculateRezalt;
 import static com.company.consol.readString;
+import static com.company.BackToArabic.BackToArabic;
 import static com.company.SanitationAndDataPreparation.PreCheck;
 import static com.company.erorHending.*;
 
@@ -14,9 +17,13 @@ public class Main {
 
     public static int a=0;
     public static int b=0;
+    public static int r=0;
+    public static boolean PrintRezalt = false;
+    public static String TipeOfNum = "";
 
 
-    public static String ErrorTotal;
+
+
 
     public static void main(String[] args) throws Exception{
 	// вводная часть
@@ -30,6 +37,7 @@ public class Main {
         String st = readString();
 
         // Проверка на наличие пробелов
+        // Запуск вычислений
         if (PreCheck(st)) {
 
 
@@ -49,11 +57,13 @@ public class Main {
                 if (checkDigits(FirstNum, SecondNum)) {
                     a = Integer.parseInt(FirstNum);
                     b = Integer.parseInt(SecondNum);
+                    TipeOfNum = "arab";
 
                     // если цифры Римские то преобразую их в арабские числа
                 } else {
                     a = romanToArabic(FirstNum);
                     b = romanToArabic(SecondNum);
+                    TipeOfNum = "rom";
 
                 }
                 //Проверяю не буде ли деления на ноль
@@ -64,7 +74,7 @@ public class Main {
                     if (a != -999999 || b != -999999) {
                         if (a <= 10 && b <= 10) {
 
-                            System.out.println(calculateRezalt(Act, a, b));
+                            r = calculateRezalt(Act, a, b); PrintRezalt = true;
                         } else {
                             System.out.println("Ошибка: Оба числа должны быть менее 10ти");
                         }
@@ -75,7 +85,17 @@ public class Main {
 
 
 
+        }
+        if (PrintRezalt){
+            if (TipeOfNum == "arab") {
+                System.out.println(r);
+            } else {
+                if (TipeOfNum == "rom") {
+                    System.out.println(BackToArabic(r));
+                }
             }
+
+        }
 
 
 

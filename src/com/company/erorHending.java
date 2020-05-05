@@ -38,7 +38,7 @@ public class erorHending {
 
     public static boolean CheckDividZerro (int b, String s){
         boolean j=false;
-        if ( (b != 0) && (!s.equals("/")) ) {
+        if ( (b != 0) || (!s.equals("/")) ) {
             j = true;
         } else {
             System.out.println("OШИБКА! деление на ноль запрещено! и/Или не возможно.");
