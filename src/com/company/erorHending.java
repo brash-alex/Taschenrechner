@@ -47,18 +47,7 @@ public class erorHending {
         return j;  }
 
 
-    public static boolean CheckCorrectRomDigits (String b, String s){
-        boolean j=false;
 
-       /* if ( (b != 0) && (!s.equals("/")) ) {
-            j = true;
-        } else {
-            System.out.println("OШИБКА! деление на ноль запрещено! и/Или не возможно.");
-        }
-
-        */
-
-        return j;  }
 
 
 }
